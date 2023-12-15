@@ -68,7 +68,7 @@ public abstract class PrintedItem {
 
     @Override
     public String toString() {
-        return "PrintedItem{" +
+        return
                 "isbn='" + isbn + '\'' +
                 ", title='" + title + '\'' +
                 ", publicationYear=" + publicationYear +

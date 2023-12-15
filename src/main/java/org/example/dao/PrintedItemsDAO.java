@@ -67,4 +67,9 @@ public class PrintedItemsDAO {
         query.setParameter("title", title);
         return query.getResultList();
     }
+
+    public List<PrintedItem> showAllElements() {
+        TypedQuery<PrintedItem> query = em.createQuery("SELECT p FROM PrintedItem p", PrintedItem.class);
+        return query.getResultList();
+    }
 }

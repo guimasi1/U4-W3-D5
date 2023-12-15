@@ -43,6 +43,8 @@ public class Book extends PrintedItem{
     @Override
     public String toString() {
         return "Book{" +
+                "isbn='" + this.getIsbn() + '\'' +
+                "title='" + this.getTitle() + '\'' +
                 "author='" + author + '\'' +
                 ", genre='" + genre + '\'' +
                 '}';

@@ -10,7 +10,9 @@ import org.example.entities.*;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.criteria.CriteriaBuilder;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -54,11 +56,11 @@ public class Application {
         // loansDAO.save(loan3);
         // loansDAO.save(loan4);
         // createUsers();
-        createPrintedItems();
+        // createPrintedItems();
         // loansDAO.searchCurrentlyBorrowedItems().forEach(System.out::println);
         // loansDAO.searchCurrentlyBorrowedItemsByCardNumber(1).forEach(System.out::println);
         // loansDAO.findUnreturnedLoans().forEach(System.out::println);
-
+        interact(scanner);
 
 
         scanner.close();
@@ -108,5 +110,46 @@ public class Application {
                     randomYear, faker.number().numberBetween(5,100),periodicities[faker.number().numberBetween(0,3)]);
             printedItemsDAO.save(magazine);
         }
+    }
+
+    public static void interact(Scanner scanner) {
+
+        EntityManager em = emf.createEntityManager();
+        PrintedItemsDAO itemsDAO = new PrintedItemsDAO(em);
+        UsersDAO usersDAO = new UsersDAO(em);
+        LoansDAO loansDAO = new LoansDAO(em);
+        int cardNumber = 0;
+        do {
+            System.out.println("Salve, inserisca il codice della sua carta bibliotecaria.");
+            cardNumber = Integer.parseInt(scanner.nextLine());
+
+        } while (cardNumber == 0);
+        System.out.println("Questo è l'elenco dei libri e delle riviste che abbiamo");
+        itemsDAO.showAllElements().forEach(System.out::println);
+
+        String title = null;
+        String author = null;
+        int choice;
+        do {
+            System.out.println("Sta cercando qualcosa in particolare? Prema 1 per cercare in base al titolo" +
+                    " e 2 per cercare in base all'autore. Altrimenti per uscire prema 3.");
+            choice = Integer.parseInt(scanner.nextLine());
+            if(choice == 1) {
+                do {
+                    System.out.println("Inserisca il nome del titolo.");
+                    title = scanner.nextLine();
+                    System.out.println("Ecco la lista di elementi:");
+                    itemsDAO.searchByTitle(title).forEach(System.out::println);
+                } while (title == null);
+            } else if (choice == 2) {
+                do {
+                    System.out.println("Inserisca il nome dell'autore.");
+                    author = scanner.nextLine();
+                    System.out.println("Ecco la lista di elementi:");
+                    itemsDAO.searchByAuthor(author).forEach(System.out::println);;
+                } while (author == null);
+            }
+        } while ((choice < 1 || choice > 3));
+
     }
 }

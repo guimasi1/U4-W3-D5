@@ -36,6 +36,8 @@ public class Magazine extends PrintedItem {
     @Override
     public String toString() {
         return "Magazine{" +
+                "isbn='" + this.getIsbn() + '\'' +
+                "title='" + this.getTitle() + '\'' +
                 "periodicity=" + periodicity +
                 '}';
     }
