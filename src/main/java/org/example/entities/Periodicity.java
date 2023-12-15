@@ -1,2 +1,7 @@
-package org.example.entities;public enum Periodicity {
+package org.example.entities;
+
+public enum Periodicity {
+    WEEKLY,
+    MONTHLY,
+    BIANNUAL,
 }
