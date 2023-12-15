@@ -1,6 +1,8 @@
 package org.example.entities;
 
+
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -8,7 +10,7 @@ import java.util.List;
 public class User {
     private String name;
     private String surname;
-    private String birthday;
+    private LocalDate birthday;
     @Id
     @GeneratedValue
     @Column(name = "card_number")
@@ -21,11 +23,10 @@ public class User {
 
     public User () {}
 
-    public User(String name, String surname, String birthday, int cardNumber) {
+    public User(String name, String surname, LocalDate birthday) {
         this.name = name;
         this.surname = surname;
         this.birthday = birthday;
-        this.cardNumber = cardNumber;
     }
 
     // GETTER AND SETTER
@@ -46,11 +47,11 @@ public class User {
         this.surname = surname;
     }
 
-    public String getBirthday() {
+    public LocalDate getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(String birthday) {
+    public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
     }
 

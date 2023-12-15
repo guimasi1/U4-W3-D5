@@ -67,7 +67,4 @@ public class PrintedItemsDAO {
         query.setParameter("title", title);
         return query.getResultList();
     }
-
-
-
 }
