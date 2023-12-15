@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29dfffc5-35bc-4e2e-b8eb-ca1caa713676" name="Changes" comment="Interact method">
+    <list default="true" id="29dfffc5-35bc-4e2e-b8eb-ca1caa713676" name="Changes" comment="Interact method - loan feature">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/PrintedItemsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/PrintedItemsDAO.java" afterDir="false" />
@@ -95,7 +95,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702648786832</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Interact method - loan feature">
+      <option name="closed" value="true" />
+      <created>1702651054546</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1702651054546</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -103,6 +111,7 @@
     <MESSAGE value="Exercises Completed" />
     <MESSAGE value="Fake users, magazines, books." />
     <MESSAGE value="Interact method" />
-    <option name="LAST_COMMIT_MESSAGE" value="Interact method" />
+    <MESSAGE value="Interact method - loan feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="Interact method - loan feature" />
   </component>
 </project>

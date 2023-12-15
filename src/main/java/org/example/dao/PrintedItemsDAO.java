@@ -69,7 +69,7 @@ public class PrintedItemsDAO {
     }
 
     public PrintedItem searchByExactTitle(String title) {
-        TypedQuery<PrintedItem> query = em.createQuery("SELECT p FROM PrintedItem p WHERE p.title = :title", PrintedItem.class);
+        TypedQuery<PrintedItem> query = em.createQuery("SELECT p FROM PrintedItem p WHERE LOWER(p.title) = LOWER(:title)", PrintedItem.class);
         query.setParameter("title", title);
         return query.getSingleResult();
     }

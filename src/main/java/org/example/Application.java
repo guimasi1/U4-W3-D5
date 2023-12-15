@@ -118,6 +118,7 @@ public class Application {
         PrintedItemsDAO itemsDAO = new PrintedItemsDAO(em);
         UsersDAO usersDAO = new UsersDAO(em);
         LoansDAO loansDAO = new LoansDAO(em);
+        System.out.println(usersDAO.orderUserByName());
         int cardNumber = 0;
         do {
             System.out.println("Salve, inserisca il codice della sua carta bibliotecaria.");
@@ -160,7 +161,8 @@ public class Application {
             loansDAO.save(loan1);
             System.out.println("Grazie, per favore lo riporti entro il " + LocalDate.now().plusDays(30));
         } while (titleToBorrow == null);
-
+        System.out.println("Questa è la lista di prestiti associata alla sua tessera: ");
+        loansDAO.searchCurrentlyBorrowedItemsByCardNumber(cardNumber).forEach(System.out::println);
 
     }
 }
