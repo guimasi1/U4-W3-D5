@@ -68,6 +68,12 @@ public class PrintedItemsDAO {
         return query.getResultList();
     }
 
+    public PrintedItem searchByExactTitle(String title) {
+        TypedQuery<PrintedItem> query = em.createQuery("SELECT p FROM PrintedItem p WHERE p.title = :title", PrintedItem.class);
+        query.setParameter("title", title);
+        return query.getSingleResult();
+    }
+
     public List<PrintedItem> showAllElements() {
         TypedQuery<PrintedItem> query = em.createQuery("SELECT p FROM PrintedItem p", PrintedItem.class);
         return query.getResultList();

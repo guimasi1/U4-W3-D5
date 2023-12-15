@@ -150,6 +150,17 @@ public class Application {
                 } while (author == null);
             }
         } while ((choice < 1 || choice > 3));
+        String titleToBorrow = null;
+        do {
+            System.out.println("Che cosa vuole prendere in prestito? Inserisca il titolo esatto.");
+            titleToBorrow = scanner.nextLine();
+            System.out.println("CardNumber " + cardNumber);
+            System.out.println(itemsDAO.searchByExactTitle(titleToBorrow) + " item to borrow");
+            Loan loan1 = new Loan(usersDAO.getByCardNumber(cardNumber), itemsDAO.searchByExactTitle(titleToBorrow), LocalDate.now());
+            loansDAO.save(loan1);
+            System.out.println("Grazie, per favore lo riporti entro il " + LocalDate.now().plusDays(30));
+        } while (titleToBorrow == null);
+
 
     }
 }
