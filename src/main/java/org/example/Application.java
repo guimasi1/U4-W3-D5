@@ -179,9 +179,9 @@ public class Application {
                 if (returnChoice == 1) {
                     int loanToReturn;
                     do {
-                        System.out.println("Inserisca un numero da 0 a " + loansDAO.searchCurrentlyBorrowedItemsByCardNumber(cardNumber).size());
+                        System.out.println("Inserisca un numero da 1 a " + loansDAO.searchCurrentlyBorrowedItemsByCardNumber(cardNumber).size());
                         loanToReturn = Integer.parseInt(scanner.nextLine());
-                        loansDAO.returnItem(LocalDate.now());
+                        loansDAO.returnItem(LocalDate.now(), loansDAO.searchCurrentlyBorrowedItemsByCardNumber(cardNumber).get(loanToReturn -1));
                     } while (loanToReturn < 0 || loanToReturn > loansDAO.searchCurrentlyBorrowedItemsByCardNumber(cardNumber).size());
                 }
             } while (returnChoice < 1 || returnChoice > 2);

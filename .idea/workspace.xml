@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29dfffc5-35bc-4e2e-b8eb-ca1caa713676" name="Changes" comment="Count users, printed items, loans (in DAOs)">
+    <list default="true" id="29dfffc5-35bc-4e2e-b8eb-ca1caa713676" name="Changes" comment="completes method in application">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/LoansDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/LoansDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +126,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702654088037</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="completes method in application">
+      <option name="closed" value="true" />
+      <created>1702655814524</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1702655814524</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -139,7 +146,8 @@
     <MESSAGE value="Adds methods in UsersDAO" />
     <MESSAGE value="Adds methods in PrintedItemsDAO" />
     <MESSAGE value="Count users, printed items, loans (in DAOs)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Count users, printed items, loans (in DAOs)" />
+    <MESSAGE value="completes method in application" />
+    <option name="LAST_COMMIT_MESSAGE" value="completes method in application" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

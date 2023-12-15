@@ -51,12 +51,14 @@ public class LoansDAO {
         return query.getSingleResult();
     }
 
-    public void returnItem(LocalDate today) {
+    public void returnItem(LocalDate today, Loan loan) {
 
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
-        Query modify = em.createQuery("UPDATE Loan l SET l.returnDate = :today");
-        modify.setParameter("today", today);
+        Query modify = em.createQuery("UPDATE Loan l SET l.returnDate = :today WHERE l = :loan");
+        modify.setParameter("today", LocalDate.now());
+        modify.setParameter("loan", loan);
+        modify.executeUpdate();
         System.out.println("elemento modificato");
         transaction.commit();
     }
