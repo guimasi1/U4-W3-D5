@@ -151,17 +151,40 @@ public class Application {
             }
         } while ((choice < 1 || choice > 3));
         String titleToBorrow = null;
-        do {
-            System.out.println("Che cosa vuole prendere in prestito? Inserisca il titolo esatto.");
-            titleToBorrow = scanner.nextLine();
-            System.out.println("CardNumber " + cardNumber);
-            System.out.println(itemsDAO.searchByExactTitle(titleToBorrow) + " item to borrow");
-            Loan loan1 = new Loan(usersDAO.getByCardNumber(cardNumber), itemsDAO.searchByExactTitle(titleToBorrow), LocalDate.now());
-            loansDAO.save(loan1);
-            System.out.println("Grazie, per favore lo riporti entro il " + LocalDate.now().plusDays(30));
-        } while (titleToBorrow == null);
-        System.out.println("Questa è la lista di prestiti associata alla sua tessera: ");
-        loansDAO.searchCurrentlyBorrowedItemsByCardNumber(cardNumber).forEach(System.out::println);
 
+        int borrowChoice;
+        do {
+            System.out.println("Vuole prendere qualcosa in prestito? Prema 1 per confermare, 2 per rifiutare.");
+            borrowChoice = Integer.parseInt(scanner.nextLine());
+            if(borrowChoice == 1) {
+                do {
+                    System.out.println("Che cosa vuole prendere in prestito? Inserisca il titolo esatto.");
+                    titleToBorrow = scanner.nextLine();
+                    System.out.println("CardNumber " + cardNumber);
+                    System.out.println(itemsDAO.searchByExactTitle(titleToBorrow) + " item to borrow");
+                    Loan loan1 = new Loan(usersDAO.getByCardNumber(cardNumber), itemsDAO.searchByExactTitle(titleToBorrow), LocalDate.now());
+                    loansDAO.save(loan1);
+                    System.out.println("Grazie, per favore lo riporti entro il " + LocalDate.now().plusDays(30));
+                } while (titleToBorrow == null);
+            }
+        } while (borrowChoice < 1 || borrowChoice > 2);
+
+        if(!loansDAO.searchCurrentlyBorrowedItemsByCardNumber(cardNumber).isEmpty()) {
+            System.out.println("Questa è la lista di prestiti associata alla sua tessera: ");
+            loansDAO.searchCurrentlyBorrowedItemsByCardNumber(cardNumber).forEach(System.out::println);
+            int returnChoice;
+            do {
+                System.out.println("Vuole fare una restituzione di un prestito? Prema 1 per confermare, 2 per rifiutare.");
+                returnChoice = Integer.parseInt(scanner.nextLine());
+                if (returnChoice == 1) {
+                    int loanToReturn;
+                    do {
+                        System.out.println("Inserisca un numero da 0 a " + loansDAO.searchCurrentlyBorrowedItemsByCardNumber(cardNumber).size());
+                        loanToReturn = Integer.parseInt(scanner.nextLine());
+                        loansDAO.returnItem(LocalDate.now());
+                    } while (loanToReturn < 0 || loanToReturn > loansDAO.searchCurrentlyBorrowedItemsByCardNumber(cardNumber).size());
+                }
+            } while (returnChoice < 1 || returnChoice > 2);
+        } else System.out.println("Momentaneamente non ha nessun prestito.");
     }
 }

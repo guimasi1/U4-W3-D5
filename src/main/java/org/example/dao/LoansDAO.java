@@ -1,9 +1,11 @@
 package org.example.dao;
 
+import net.bytebuddy.asm.Advice;
 import org.example.entities.Loan;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.time.LocalDate;
 import java.util.List;
@@ -47,5 +49,15 @@ public class LoansDAO {
     public Long countHowManyLoans () {
         TypedQuery<Long> query = em.createQuery("SELECT count(l) FROM Loan l",Long.class);
         return query.getSingleResult();
+    }
+
+    public void returnItem(LocalDate today) {
+
+        EntityTransaction transaction = em.getTransaction();
+        transaction.begin();
+        Query modify = em.createQuery("UPDATE Loan l SET l.returnDate = :today");
+        modify.setParameter("today", today);
+        System.out.println("elemento modificato");
+        transaction.commit();
     }
 }

@@ -16,7 +16,7 @@ public class User {
     @Column(name = "card_number")
     private int cardNumber;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     private List<Loan> loans;
 
     // CONSTRUCTORS
