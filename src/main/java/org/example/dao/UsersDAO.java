@@ -64,4 +64,9 @@ public class UsersDAO {
         return query.getResultList();
     }
 
+    public Long countHowManyUsers() {
+        TypedQuery<Long> query = em.createQuery("SELECT COUNT(u) FROM User u", Long.class);
+        return query.getSingleResult();
+    }
+
 }

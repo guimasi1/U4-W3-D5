@@ -44,6 +44,8 @@ public class LoansDAO {
         return query.getResultList();
     }
 
-    /*public List<Loan> searchNotReturnedItems() {
-    }*/
+    public Long countHowManyLoans () {
+        TypedQuery<Long> query = em.createQuery("SELECT count(l) FROM Loan l",Long.class);
+        return query.getSingleResult();
+    }
 }

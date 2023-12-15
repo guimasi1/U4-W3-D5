@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29dfffc5-35bc-4e2e-b8eb-ca1caa713676" name="Changes" comment="Adds methods in UsersDAO">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="29dfffc5-35bc-4e2e-b8eb-ca1caa713676" name="Changes" comment="Adds methods in PrintedItemsDAO">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/PrintedItemsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/PrintedItemsDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/UsersDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/UsersDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Magazine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Magazine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/LoansDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/LoansDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +109,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702652429727</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Adds methods in PrintedItemsDAO">
+      <option name="closed" value="true" />
+      <created>1702653384767</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1702653384767</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -123,6 +127,18 @@
     <MESSAGE value="Interact method" />
     <MESSAGE value="Interact method - loan feature" />
     <MESSAGE value="Adds methods in UsersDAO" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adds methods in UsersDAO" />
+    <MESSAGE value="Adds methods in PrintedItemsDAO" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adds methods in PrintedItemsDAO" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/dao/LoansDAO.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -113,5 +113,9 @@ public class PrintedItemsDAO {
         query.setParameter("genre", genre);
         return query.getResultList();
     }
+    public Long countHowManyPrintedElements() {
+        TypedQuery<Long> query = em.createQuery("SELECT COUNT(p) FROM PrintedItem p", Long.class);
+        return query.getSingleResult();
+    }
 
 }
