@@ -118,7 +118,7 @@ public class Application {
         PrintedItemsDAO itemsDAO = new PrintedItemsDAO(em);
         UsersDAO usersDAO = new UsersDAO(em);
         LoansDAO loansDAO = new LoansDAO(em);
-        System.out.println(usersDAO.orderUserByName());
+
         int cardNumber = 0;
         do {
             System.out.println("Salve, inserisca il codice della sua carta bibliotecaria.");

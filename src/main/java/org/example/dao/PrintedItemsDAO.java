@@ -1,6 +1,7 @@
 package org.example.dao;
 
 import org.example.entities.Book;
+import org.example.entities.Periodicity;
 import org.example.entities.PrintedItem;
 
 import javax.persistence.EntityManager;
@@ -78,4 +79,39 @@ public class PrintedItemsDAO {
         TypedQuery<PrintedItem> query = em.createQuery("SELECT p FROM PrintedItem p", PrintedItem.class);
         return query.getResultList();
     }
+    public List<PrintedItem> orderElementsByTitleAZ() {
+        TypedQuery<PrintedItem> query = em.createQuery("SELECT p FROM PrintedItem p ORDER BY p.title", PrintedItem.class);
+        return query.getResultList();
+    }
+    public List<PrintedItem> orderElementsByTitleZA() {
+        TypedQuery<PrintedItem> query = em.createQuery("SELECT p FROM PrintedItem p ORDER BY p.title DESC", PrintedItem.class);
+        return query.getResultList();
+    }
+    public List<PrintedItem> orderElementsByOldest() {
+        TypedQuery<PrintedItem> query = em.createQuery("SELECT p FROM PrintedItem p ORDER BY p.publicationYear", PrintedItem.class);
+        return query.getResultList();
+    }
+    public List<PrintedItem> orderElementsByMostRecent() {
+        TypedQuery<PrintedItem> query = em.createQuery("SELECT p FROM PrintedItem p ORDER BY p.publicationYear DESC", PrintedItem.class);
+        return query.getResultList();
+    }
+    public List<PrintedItem> orderByMostPages() {
+        TypedQuery<PrintedItem> query = em.createQuery("SELECT p FROM PrintedItem p ORDER BY p.numberOfPages DESC", PrintedItem.class);
+        return query.getResultList();
+    }
+    public List<PrintedItem> orderByLeastPages() {
+        TypedQuery<PrintedItem> query = em.createQuery("SELECT p FROM PrintedItem p ORDER BY p.numberOfPages", PrintedItem.class);
+        return query.getResultList();
+    }
+    public List<PrintedItem> getByPeriodicity(Periodicity periodicity) {
+        TypedQuery<PrintedItem> query = em.createQuery("SELECT p FROM PrintedItem p WHERE p.periodicity = :periodicity", PrintedItem.class);
+        query.setParameter("periodicity", periodicity);
+        return query.getResultList();
+    }
+    public List<PrintedItem> getByGenre(String genre) {
+        TypedQuery<PrintedItem> query = em.createQuery("SELECT p FROM PrintedItem p WHERE LOWER(p.genre) = LOWER(:genre)", PrintedItem.class);
+        query.setParameter("genre", genre);
+        return query.getResultList();
+    }
+
 }

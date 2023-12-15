@@ -46,6 +46,7 @@ public class UsersDAO {
         TypedQuery<User> query = em.createQuery("SELECT u FROM User u ORDER BY u.birthday DESC", User.class);
         return query.getResultList();
     }
+
     public List<User> orderUserByName() {
         TypedQuery<User> query = em.createQuery("SELECT u FROM User u ORDER BY u.name", User.class);
         return query.getResultList();
@@ -62,8 +63,5 @@ public class UsersDAO {
         query.setParameter("surname",surname);
         return query.getResultList();
     }
-
-
-
 
 }

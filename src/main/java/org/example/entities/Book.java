@@ -44,8 +44,10 @@ public class Book extends PrintedItem{
     public String toString() {
         return "Book{" +
                 "isbn='" + this.getIsbn() + '\'' +
-                "title='" + this.getTitle() + '\'' +
-                "author='" + author + '\'' +
+                ", title='" + this.getTitle() + '\'' +
+                ", publication year='" + this.getPublicationYear() + '\'' +
+                ", number of pages='" + this.getNumberOfPages() + '\'' +
+                ", author='" + author + '\'' +
                 ", genre='" + genre + '\'' +
                 '}';
     }

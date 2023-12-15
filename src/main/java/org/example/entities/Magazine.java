@@ -37,8 +37,10 @@ public class Magazine extends PrintedItem {
     public String toString() {
         return "Magazine{" +
                 "isbn='" + this.getIsbn() + '\'' +
-                "title='" + this.getTitle() + '\'' +
-                "periodicity=" + periodicity +
+                ", title='" + this.getTitle() + '\'' +
+                ", publication year='" + this.getPublicationYear() + '\'' +
+                ", number of pages='" + this.getNumberOfPages() + '\'' +
+                ", periodicity=" + periodicity +
                 '}';
     }
 }
