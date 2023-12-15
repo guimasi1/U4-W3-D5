@@ -1,17 +1,18 @@
 package org.example;
 
+import com.github.javafaker.Faker;
 import net.bytebuddy.asm.Advice;
 import org.example.dao.LoansDAO;
 import org.example.dao.PrintedItemsDAO;
 import org.example.dao.UsersDAO;
-import org.example.entities.Book;
-import org.example.entities.Loan;
-import org.example.entities.User;
+import org.example.entities.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.time.LocalDate;
+import java.time.Period;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Application {
@@ -52,18 +53,60 @@ public class Application {
         // loansDAO.save(loan2);
         // loansDAO.save(loan3);
         // loansDAO.save(loan4);
-
-
+        // createUsers();
+        createPrintedItems();
         // loansDAO.searchCurrentlyBorrowedItems().forEach(System.out::println);
         // loansDAO.searchCurrentlyBorrowedItemsByCardNumber(1).forEach(System.out::println);
         // loansDAO.findUnreturnedLoans().forEach(System.out::println);
 
-        for (int i = 0; i < 10; i++) {
 
-        }
 
         scanner.close();
         em.close();
         emf.close();
+    }
+
+    public static void createUsers() {
+        EntityManager em = emf.createEntityManager();
+        UsersDAO usersDAO = new UsersDAO(em);
+        Faker faker = new Faker();
+        LocalDate birthday1 = LocalDate.parse("1995-01-01");
+        LocalDate birthday2 = LocalDate.parse("1980-12-22");
+        LocalDate birthday3 = LocalDate.parse("1952-10-02");
+        LocalDate birthday4 = LocalDate.parse("1999-01-31");
+        LocalDate birthday5 = LocalDate.parse("1972-10-04");
+        LocalDate[] arrayBirthdays = {birthday1,birthday2,birthday3,birthday4,birthday5};
+        for (int i = 0; i < 5; i++) {
+            User user = new User(faker.name().firstName(), faker.name().lastName(), arrayBirthdays[i]);
+            usersDAO.save(user);
+        }
+
+    }
+
+    public static void createPrintedItems() {
+        EntityManager em = emf.createEntityManager();
+        PrintedItemsDAO printedItemsDAO = new PrintedItemsDAO(em);
+        Faker faker = new Faker();
+        for(int i = 0; i < 20; i++) {
+            int minYear = 1910;
+            int maxYear = LocalDate.now().getYear();
+
+            int randomYear = faker.number().numberBetween(minYear, maxYear + 1);
+            Book book = new Book(faker.code().isbn13(), faker.book().title(),
+                    randomYear, faker.number().numberBetween(5,800), faker.book().author(), faker.book().genre());
+            printedItemsDAO.save(book);
+        }
+        Periodicity weekly = Periodicity.WEEKLY;
+        Periodicity monthly = Periodicity.MONTHLY;
+        Periodicity biannual = Periodicity.BIANNUAL;
+        Periodicity[] periodicities = {weekly,monthly,biannual};
+        for (int i = 0; i < 20; i++) {
+            int minYear = 1910;
+            int maxYear = LocalDate.now().getYear();
+            int randomYear = faker.number().numberBetween(minYear, maxYear);
+            Magazine magazine = new Magazine(faker.code().isbn13(), faker.book().title(),
+                    randomYear, faker.number().numberBetween(5,100),periodicities[faker.number().numberBetween(0,3)]);
+            printedItemsDAO.save(magazine);
+        }
     }
 }
